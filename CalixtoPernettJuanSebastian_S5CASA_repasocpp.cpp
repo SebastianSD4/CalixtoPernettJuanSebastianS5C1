@@ -1,4 +1,4 @@
-
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,8 +47,8 @@ int main(){
   cout<<"El resultado es "<<cociente<<endl;
   // 4) Crear un arreglo con 300 números enteros aleatorios entre 0 y 900.
   srand(time(NULL));
-  int arreglo[300];
-  for (int i=0; i<300; i++){
+  int arreglo[10];
+  for (int i=0; i<10; i++){
     arreglo[i]=rand()%900;
   // 5) Hacer una iteración para recorrer dicho arreglo e imprimir todos sus elementos.
     cout<<arreglo[i]<<endl;
@@ -65,5 +65,11 @@ int main(){
   cout<<"El mínimo valor del arreglo generado es "<<minimo(arreglo, N)<<endl;
   // 11) Haga una función que reciba el arreglo de números aleatorios antes creado, imprima los números impares y pare de imprimir al encontrar un número mayor a 800  
   impares(arreglo, N);
+  ofstream outfile;
+  outfile.open("data.dat");
+  for (int i=0; i<N; i++){
+    outfile << arreglo[i] << " " ;
+  }
+  outfile.close();
   return 0;
 }
